@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-full-bg">
+ <div class="jumbotron" style="width:300px ;">
+      <h1 class="display-3 font-weight-bold">Word Fun!</h1>
+      <p>A website that'll help you enrich your word treasure.</p>
+  </div>
+  </div>
+
+<div class= "row pt-3">
+ <div class= "col-3">
+  <h3 class="font-bold">{{word.word_num}}</h3>
+  </div>
+  <div class= "col-6">
+  <a href="javascript:{document.getElementById('important').submit()}"><button class ="btn btn-dark btn-sm"><span class="oi oi-caret-top"></span> important {{ word.imp }}</button></a>
+ </div>
+ </div>
+
+<div class= "row pt-3">
+ <div class= "col-8">
+  <p>Definition :<br /><br /> {{word.defi}}</p>
+</div>
+ </div>
+<div class= "row pt-3">
+ <div class= "col-6">
+  <p>Use in a sentence : {{word.use_in}}</p>
+  </div>
+</div>
+
+
+
+<form id="important" method="POST" action="{% url 'important' word.id %}">
+    {% csrf_token %}
+    <input type="hidden">
+
+</form>
+
+{% endblock %}

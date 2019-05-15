@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+{% if error %}
+
+
+{{ error }}
+
+<br/>
+<br/>
+{% endif %}
+
+
+
+<h1></h1>
+
+<form method="POST" action="{% url 'add' %}">
+ {% csrf_token %}
+ 
+ Word:
+ <br />
+ <input type="text" name="word_num" />
+ <br/>
+  <br/>
+
+Definition:
+ <br />
+ <input type="text-box" name="defi" />
+ <br/>
+ <br/>
+
+Use in a Sentence:
+ <br />
+ <input type="text-box" name="use_in" />
+ <br/>
+ <br/>
+
+
+<input class = "btn  btn-dark" type="submit" value="Add Word"/>
+</form>
+
+{% endblock %}

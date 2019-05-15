@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+baaaal
+
+{% if word %}
+	{% for word in words.all %}
+	<li>{{ word }}</li>
+	{% endfor %}
+{% endif %}
+
+
+{% endblock %}
